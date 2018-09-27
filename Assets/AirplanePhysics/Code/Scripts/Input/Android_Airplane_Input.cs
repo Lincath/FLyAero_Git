@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace weloveaero
 {
-    public class XboxAirplane_Input : BaseAirplane_Input 
+    public class Android_Airplane_Input : BaseAirplane_Input 
     {
         #region Variables
         #endregion
@@ -18,7 +18,10 @@ namespace weloveaero
 
             // edition des inputs dans   Edit -> project settings -> Input -> Axes
             pitch += Input.GetAxis("Vertical");
-            roll += Input.GetAxis("Horizontal");
+
+            //roll += Input.GetAxis("Horizontal");
+            roll = Input.acceleration.x;
+
             yaw += Input.GetAxis("X_RH_Stick");
             yaw += Input.GetAxis("X_RH_Stick2");
             throttle += Input.GetAxis("X_RV_Stick");
@@ -48,7 +51,7 @@ namespace weloveaero
             //Restart
             if (Input.GetButtonDown("ReLoad"))
             {
-                Application.LoadLevel("MainMenu") ;
+                Application.LoadLevel("Airplane_Setup_Dev") ;
             }
             
         }
